@@ -1,0 +1,59 @@
+
+> myInstaApp@1.0.0 start /home/pi/timeCodeNodeServer
+> babel-node index.js
+
+Creating the Controller.
+In app....
+loading plugin ... sensors
+SensorsPlugin {
+  service: null,
+  path: '/home/pi/timeCodeNodeServer/plugins/sensors',
+  requests: {},
+  config: { sensors: [ [Object], [Object] ] },
+  view: 
+   { link: 'Sensors',
+     linkicon: 'dashboard',
+     type: 'List',
+     itemType: 'SensorItem',
+     list: [] },
+  sensors: [] }
+setService
+PluginService {
+  plugins: [],
+  clientsSockets: [],
+  pluginsEvents: 
+   EventEmitter {
+     domain: null,
+     _events: {},
+     _eventsCount: 0,
+     _maxListeners: undefined } }
+temperature
+----> 
+undefined
+presence
+----> 
+undefined
+loading plugin ... time
+TimePlugin {
+  service: null,
+  path: '/home/pi/timeCodeNodeServer/plugins/time',
+  requests: { time: 'il est quelle heure', day: 'on est quel jour' },
+  config: {},
+  view: null }
+setService
+PluginService {
+  plugins: 
+   [ SensorsPlugin {
+       service: [Circular],
+       path: '/home/pi/timeCodeNodeServer/plugins/sensors',
+       requests: {},
+       config: [Object],
+       view: [Object],
+       sensors: [Array] } ],
+  clientsSockets: [],
+  pluginsEvents: 
+   EventEmitter {
+     domain: null,
+     _events: {},
+     _eventsCount: 0,
+     _maxListeners: undefined } }
