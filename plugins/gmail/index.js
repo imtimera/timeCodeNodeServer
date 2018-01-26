@@ -12,33 +12,23 @@ class GmailPlugin extends Plugin{
         , gmail = new Gmail(token_mail.access_token)
         , s = gmail.messages('label:inbox', {max: 100})
         var tab_req=["inbox","spam","trash","unread","starred","important","sent"];
+        var rep;
+        var service=this.service;
         tab_req.forEach(function(element) {
             if(id==element){
-                s = gmail.messages('label:'+element, {max: 100})
+
+                s = gmail.messages('label:'+element)
+                
                 s.on('data', function (d) {
                         console.log('----'+d.snippet)
+                        //console.log(service);
+                        service.emitEvent(d.snippet,d.snippet)
                     })
-                var response=Gmail;
-                    //       console.log("response : " + response);
-                return response;
-                     
+                    
             }
         });
-        /*switch(id){
-            case "inbox":
-			    s = gmail.messages('label:inbox', {max: 100})
-                s.on('data', function (d) {
-                        console.log('----'+d.snippet)
-                    })
-                break;
-            case "sent":
-                s = gmail.messages('label:sent')
-                s.on('data', function (d) {
-                        console.log('**'+d.snippet)
-                })
-                break;
-            
-    }*/
+        return service[0];
+        
    }
 
 }
